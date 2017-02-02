@@ -1,0 +1,35 @@
+<form class="user-form" name="loginForm" novalidate>
+
+  <h4 ng-bind="ui.business_account_login" class="login-center-label"></h4>
+
+  <div class="form-item">
+    <label ng-bind="ui.username" class="login-center-label"></label>
+    <input type="text" name="username" ng-model="form.username" required />
+    <i ng-show="form.username_invalid" class="error fa fa-times-circle"></i>
+  </div>
+
+  <div class="form-item marginTop10">
+    <label ng-bind="ui.password" class="login-center-label"></label>
+    <input type="password" name="password" ng-model="form.password" required />
+    <i ng-show="form.password_invalid" class="error fa fa-times-circle"></i>
+  </div>
+  <div class="height60">
+  <div class="checkbox floatLeft">
+    <label>
+      <input type="checkbox rememberMeCheckBox"><span ng-bind="ui.remomber_me" class="login-center-label verticalAlignMiddle"></span>
+    </label>
+  </div>
+
+  <div class="forgetPasswordButton">
+    <a class="link btn-forget login-center-label" ui-sref="login.forget" ng-bind="ui.forget_password"></a>
+  </div>
+  </div>
+
+  <a class="btn btn-default btn-submit send-button displayBlockButton" ng-disabled="loginForm.$invalid" ng-bind="ui.login" ng-click="signIn()"></a>
+  <div class="error error-msg" ng-bind="form.error"></div>
+
+  <h4 ng-bind="ui.new_register" class="login-center-label"></h4>
+
+  <a class="btn btn-default btn-register send-button signinButton" ui-sref="login.register" ng-bind="ui.register"></a>
+
+</form>

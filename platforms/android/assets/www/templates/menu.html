@@ -1,0 +1,61 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content drag-content="false">
+    <ion-nav-bar class="bar-stable" ng-click="onClickTitle()">
+      <ion-nav-buttons side="left">
+        <button class="button button-icon sidemenubutton displayBlockButton" menu-toggle="left">
+          <img src="./img/left_arrow.png">
+          <p ng-bind="ui.mypolls" class="sidebarButtonLabel"></p>
+        </button>
+      </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+        <button class="button button-icon sidemenubutton displayBlockButton" menu-toggle="right">
+          <p ng-bind="ui.torate" class="sidebarButtonLabel"></p>
+          <img src="./img/right_arrow.png">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <!-- TABS -->
+    <ion-tabs class="tabs-icon-top">
+
+      <ion-tab title="Contacts" icon-off="inactive-contact" icon-on="active-contact" ng-click="gotoContact()">
+        <ion-nav-view name="tab-contact"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="New Poll" icon-off="inactive-newPoll" icon-on="active-newPoll" ng-click="gotoAddPoll()">
+        <ion-nav-view name="tab-addPoll"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="Settings" icon-off="inactive-setting" icon-on="active-setting" href="#/app/settings">
+        <ion-nav-view name="tab-settings"></ion-nav-view>
+      </ion-tab>
+
+    </ion-tabs>
+
+  </ion-side-menu-content>
+
+   <!-- Side Menu (left) -->
+  <ion-side-menu type="overlay" side="left" width="120" drag-content="false">
+    <ion-content>
+      <ion-list>
+        <ion-item ng-repeat="item in imageWithName"
+            menu-close ng-click="gotoMyPoll(item)" class="sidemenu-item">
+          <img ng-src="{{item.url}}" class="sidemenu-image">
+          <p ng-bind="item.status"></p>
+        </ion-item>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+  <ion-side-menu type="overlay" side="right" width="120" drag-content="false">
+    <ion-content>
+      <ion-list>
+        <ion-item ng-repeat="rightItem in rightImageWithName" menu-close ng-click="gotoToRate(rightItem)" class="sidemenu-item">
+          <img ng-src="{{rightItem.url}}" class="sidemenu-image">
+          <p ng-bind="rightItem.status"></p>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

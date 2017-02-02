@@ -1,0 +1,15 @@
+<ion-view view-title="{{viewTitleLogoComponent}}" cache-view='false'>
+  <ion-content>
+   	<input type="text" class="select-contact-name-title colorWhite" ng-model="searchContactText" placeholder="{{ui.selectcontactname}}" ng-change="searchTextChanged(searchContactText)">
+
+   	
+   	<div class="invited-line" ng-class="{selectedInvitedLine: contact.isUserOfCurrentGroup}" ng-repeat="contact in searchedPhoneContacts track by $index" ng-click="inviteLineClick(contact)">
+   		<img class="icon-invited" src="./img/icon_peopleInvited.png" ng-show="contact.isUser">
+      <img class="icon-invited" src="./img/not_installed.png" ng-hide="contact.isUser">
+   		<span class="name-invited">{{contact.name.formatted}}</span>
+   		<button class="invite-button" ng-click="shareThroughWhatsapp()" ng-bind="ui.invite" ng-hide="contact.isUser"></button>
+   	</div>
+   	<div class="send-button marginTop20" ng-bind="ui.save" ng-click="saveGroup()"></div>
+  </ion-content>
+</ion-view>
+ 

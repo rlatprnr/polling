@@ -1,0 +1,75 @@
+<ion-view view-title="{{viewTitleLogoComponent}}" class="background-image-all-page">
+  <ion-content overflow-scroll="false">
+
+  	<p class="select-images-label" ng-bind="ui.selectImage"></p>
+  	<form name="addPollForm">
+
+  	<div class="padding-right-10">
+  		<div class="image-import-button" ng-click="getImageFromSource(0)" ng-bind="ui.gallery">
+		</div>
+  		<div class="image-import-button" ng-click="getImageFromSource(1)" ng-bind="ui.camera">	 	 
+		</div>
+	</div>
+	
+    <ion-scroll zooming="true" direction="x" class="scroll-style">
+    	<div id="container" class="row photo-gallery-row">
+	 		<div class="col photo-col" ng-repeat="image in imageSources track by $index">
+	 			<img class="photo-col-content" ng-src="{{image}}" ng-click="imageClicked(image)">
+	 		</div>
+		</div>
+	</ion-scroll>
+
+	<p class="select-images-label" ng-bind="ui.selectWhatToRate"></p>
+	<div class="selectwhattorate-line">
+		<select class="selectwhattorate-option" ng-model="selectOptionToRate" ng-change="showSelectValue(selectOptionToRate)">
+			<option value="">select</option>
+			<option ng-bind="rateOption" ng-value="rateOption" ng-repeat="rateOption in rateOptionsFromDrop track by $index">
+			</option>
+		</select>
+		<div class="as-label" ng-bind="ui.as"></div>
+		<div class="z-h-label {{z_h_button_click}}" ng-click="z_h_button_clicked()">0-100</div>
+		<div ng-bind="ui.or"></div>
+		<div class="z-h-label {{y_n_button_click}}" ng-click="y_n_button_clicked()" ng-bind="ui.yn"></div>
+		<div class="floatRight" ng-click="addOptionToRateFromDrop()" ng-bind="ui.add"></div>
+	</div>
+	<p class="select-images-label" ng-bind="ui.orcreatecustomeparameters"></p>
+	<p class="select-images-label small" ng-bind="ui.max15chars"></p>
+	<input type="text" class="custom-field" ng-model="customOptionToRate">
+	
+	<div class="custom-line">
+		<div class="as-label" ng-bind="ui.as"></div>
+		<div class="z-h-label {{b_e_label_click}}" ng-click="b_e_label_clicked()">0-100</div>
+		<div ng-bind="ui.or"></div>
+		<div class="z-h-label {{z_h_label_click}}" ng-click="z_h_label_clicked()" ng-bind="ui.yn"></div>
+		<div class="add-btn" ng-bind="ui.add" ng-click="addOptionToRateFromCustom(customOptionToRate)"></div>
+	</div>
+	<ion-scroll zooming="true" direction="x" class="scroll-style">
+    	<div id="container" class="row setting-row">
+	 		<div class="col setting-col" ng-repeat="setting in rateOptions track by $index" >
+	 			<div class="setting-col-content" ng-click="rateOptionClicked(setting)">
+		 			<p ng-bind="setting.name"></p>
+		 			<p ng-bind="setting.value"></p>
+		 		</div>
+	 		</div>
+		</div>
+	</ion-scroll>
+	<div class="select-row">
+		<p class="select-button" ng-click="gotoContact()" ng-bind="ui.select">
+		</p>
+		<p class="select-images-label-inline" ng-bind="ui.whotosendto">
+		</p>
+	</div>
+	<div class="select-name-area">
+		<p class="col-33 select-name-object" ng-repeat="user in usersToInvite track by $index" ng-bind="user.username"></p>
+	</div>
+	<p class="select-images-label" ng-bind="ui.select + ' ' + ui.timer"></p>
+	<div class="time-select-line">
+		<select ng-init="(_Array = []).length = 10;" class="time-select" ng-model="expireTime" ng-change="setExpireTime(expireTime)">
+			<option value="">select</option>
+		    <option ng-repeat="i in _Array track by $index" ng-bind="{{$index + 1}} + ' ' + ui.minutes" ng-value="{{$index + 1}}"></option>
+		</select>
+	</div>
+	<div class="send-button" ng-click="sendPoll()" ng-bind="ui.send"></div>
+	</form>
+  </ion-content>
+</ion-view>

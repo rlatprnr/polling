@@ -1,0 +1,16 @@
+<ion-view view-title="Splash" class="black-background">
+  <ion-content>
+	
+  	<div class="splash-title-style">
+  		<img src="./img/splash_title.png">
+  	</div>
+  	<div class="counter-container">
+
+      <span class="num1" ng-if="number>=0 && number<10">{{number+1}}</span>
+      <span class="num2" ng-if="number>=0">{{number}}</span>
+    </div>
+  	<div class="just-poll-it-button">
+  		<img src="./img/justPollit.png" ng-click="gotoHelp()">
+  	</div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view view-title="{{viewTitleLogoComponent}}">
+  <ion-content>
+  	
+    <div class="rated-image-area">
+	    <img class="rated-image" ng-src="{{selectedPoll.url}}">
+    </div>
+	<ion-scroll zooming="true" direction="x" class="scroll-style" ng-repeat="invitedPeopleIDAndRate in selectedPoll.invitedPeopleIDandRate_array track by $index">
+	    <div class="row rated-result-row">
+	 		<div class="col col-33 result-col" ng-repeat="rate in invitedPeopleIDAndRate.rate_array track by $index">
+	 			<div class="result-col-content">
+	 				<p ng-bind="rate.name"></p>
+	 				<p class="percent-label" ng-bind="rate.realValue"></p>
+	 				<p ng-bind="rate.value'"></p>
+	 			</div>
+	 		</div>		
+		</div>
+	</ion-scroll>
+  </ion-content>
+</ion-view>

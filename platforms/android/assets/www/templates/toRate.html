@@ -1,0 +1,26 @@
+<ion-view view-title="{{viewTitleLogoComponent}}">
+  <ion-content>
+    <div class="rated-image-area">
+	    <img class="rated-image" ng-src="{{toRatePageImage}}">
+
+    </div>
+    <p class="select-images-label" ng-bind="ui.ratewithbelowparameters"></p>
+    <form>
+    <div class="rating-line" ng-repeat="ratingOption in selectedPollToRate.rateOption_array track by $index">
+    	<span class="rating-line-name" ng-bind="ratingOption.name"></span>
+    	<div class="range rating-line-range" ng-show="ratingOption.value == '0-100'">
+        	<input type="range" name="volume" min='0' max="100" ng-model="ratingOption.realValue" >
+      	</div>
+    	<span class="rating-line-value" ng-bind="ratingOption.realValue" ng-show="ratingOption.value == '0-100'"></span>
+        <div class="switch-button" ng-show="ratingOption.value == 'Yes/No'">
+            <span class="on-button {{(ratingOption.value == 'Yes/No' && ratingOption.realValue == 'Yes') ? 'button-clicked' : ''}}" ng-click="ratingOption.realValue = 'Yes';" ng-bind="ui.yes">
+            </span>
+            <span class="off-button {{(ratingOption.value == 'Yes/No' && ratingOption.realValue == 'No') ? 'button-clicked' : ''}}" ng-click="ratingOption.realValue = 'No';" ng-bind="ui.no">
+            </span>
+        </div>
+    </div>
+    </form>
+    <div class="send-button" ng-click="setFeedbackToPoll()" ng-bind="ui.send">
+    </div>
+  </ion-content>
+</ion-view>

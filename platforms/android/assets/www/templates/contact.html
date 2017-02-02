@@ -1,0 +1,29 @@
+<ion-view view-title="{{viewTitleLogoComponent}}">
+  <ion-content>
+    <p class="select-images-label" ng-bind="ui.createnewgroup"></p>
+    <div>
+	    <input type="text" class="blank-field" ng-model="newGroupName">
+	    <div class="create-button" ng-bind="ui.create" ng-click="createNewGroup(newGroupName)">
+	    </div>
+    </div>
+    <p class="select-images-label" ng-bind="ui.orselectagroup"></p>
+  	<div class="selectgroup-line">
+		<select ng-model="currentGroupID" ng-init="currentGroupID = currentGroupID" ng-change="changeGroup(currentGroupID)">
+			<option ng-value="">Select</option>
+			<option ng-repeat="group in currentGroups track by $index" ng-value="group.id" ng-bind="group.group_name" style=""></option>
+		</select>
+		<div class="edit-button editbuttonStyle" ng-bind="ui.edit" ng-click="displayCurrentGroup()"></div>
+		<div ng-bind="ui.or" class="orLabel"></div>
+		<div class="remove-button" ng-bind="ui.remove" ng-click="removeGroup(currentGroupID)"></div>
+	</div>
+  	<div class="select-row">
+		<p class="select-button" ng-click="gotoInvite()" ng-bind="ui.select"></p>
+		<p class="select-images-label-inline" ng-bind="ui.participants">
+		</p>
+	</div>
+	<div class="select-name-area">
+		<p class="col-33 select-name-object" ng-repeat="user in usersToInvite track by $index" ng-bind="user.username"></p>
+	</div>
+	<div class="send-button marginTop20" ng-bind="ui.save" ng-click="gotoAddPollFromContact()"></div>
+  </ion-content>
+</ion-view>

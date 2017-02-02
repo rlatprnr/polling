@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script src="js/ng-cordova.min.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/controllers.js"></script>
+    <script src="js/controllers/helpController.js"></script>
+    <script src="js/controllers/settingController.js"></script>
+    <script src="js/controllers/splashController.js"></script>
+    <script src="js/controllers/contactController.js"></script>
+    <script src="js/controllers/inviteController.js"></script>
+    <script src="js/controllers/addPollController.js"></script>
+    <script src="js/controllers/myPollController.js"></script>
+    <script src="js/controllers/toRateController.js"></script>
+    <script src="js/controllers/user.js"></script>
+    <script src="js/services/auth.js"></script>
+    <script src="js/services/loading.js"></script>
+    <script src="js/services/poll-model.js"></script>
+    <script src="js/services/user-model.js"></script>
+    <script src="js/services/group-model.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="lib/angular-timer/dist/assets/js/angular-timer-bower.js"></script>
+    <script type="text/javascript" src="lib/angular-timer/dist/assets/js/angular-timer-all.min.js"></script>
+    <script type="text/javascript" src="js/factories/phonecontacts.js"></script>
+  </head>
+
+  <body ng-app="polling" ng-controller="PollingCtrl">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>
